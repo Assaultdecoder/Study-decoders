@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Access Key</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; text-align: center; }
+        .container { padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        p { color: #666; }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p>Click the button below to generate your access key.</p>
+        <button id="generateKeyBtn" class="button">Generate Key</button>
+    </div>
+
+    <script>
+        // Aapke links
+        const shortlinkUrl = 'https://smallshorts.com/sLhX3BC3';
+        const mainWebsiteUrl = 'https://neotrms.com/7892-2/';
+
+        // Jab page load ho, to check karo ki key pehle se hai ya nahi
+        window.onload = function() {
+            const keyData = localStorage.getItem('accessKey');
+
+            if (keyData) {
+                const keyObject = JSON.parse(keyData);
+                const now = new Date().getTime();
+
+                // Check karo key expire to nahi hui
+                if (now < keyObject.expiry) {
+                    // Agar key valid hai, to seedha main website par bhej do
+                    console.log('Valid key found. Redirecting to main site.');
+                    window.location.href = mainWebsiteUrl;
+                    return; // Aage ka code nahi chalega
+                } else {
+                    // Agar key expire ho gayi hai, to use हटा do
+                    console.log('Key expired. Removing key.');
+                    localStorage.removeItem('accessKey');
+                }
+            }
+            console.log('No valid key found. Waiting for user to generate one.');
+        };
+
+        // Button par click karne par shortlink par bhejo
+        document.getElementById('generateKeyBtn').onclick = function() {
+            window.location.href = shortlinkUrl;
+        };
+    </script>
+
+</body>
+</html>
