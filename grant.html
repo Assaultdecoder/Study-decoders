@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granting Access...</title>
+     <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        p { font-size: 18px; color: #333; }
+    </style>
+</head>
+<body>
+
+    <p>Granting you access, please wait...</p>
+
+    <script>
+        // Aapki main website ka link
+        const mainWebsiteUrl = 'https://neotrms.com/7892-2/';
+
+        // 24 ghante ka time milliseconds me (24 hours * 60 minutes * 60 seconds * 1000 milliseconds)
+        const expiryTime = 24 * 60 * 60 * 1000;
+        const now = new Date();
+        
+        // Key object banao jisme value aur expiry time hoga
+        const keyObject = {
+            value: 'granted',
+            expiry: now.getTime() + expiryTime,
+        };
+
+        // Is object ko string me badal kar localStorage me save karo
+        localStorage.setItem('accessKey', JSON.stringify(keyObject));
+
+        console.log('Access key granted and stored. Redirecting now...');
+
+        // Turant main website par redirect kar do
+        window.location.href = mainWebsiteUrl;
+    </script>
+
+</body>
+</html>
