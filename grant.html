@@ -17,21 +17,22 @@
         // Aapki main website ka link
         const mainWebsiteUrl = 'https://neotrms.com/7892-2/';
 
-        // 24 ghante ka time milliseconds me (24 hours * 60 minutes * 60 seconds * 1000 milliseconds)
+        // 24 ghante ka time milliseconds me
         const expiryTime = 24 * 60 * 60 * 1000;
         const now = new Date();
         
-        // Key object banao jisme value aur expiry time hoga
+        // Key object banao
         const keyObject = {
             value: 'granted',
             expiry: now.getTime() + expiryTime,
         };
 
-        // Is object ko string me badal kar localStorage me save karo
+        // localStorage me key save karo
         localStorage.setItem('accessKey', JSON.stringify(keyObject));
 
-        console.log('Access key granted and stored. Redirecting now...');
+        console.log('Access key granted. Redirecting to main website...');
 
+        // === YEH SABSE ZAROORI LINE HAI ===
         // Turant main website par redirect kar do
         window.location.href = mainWebsiteUrl;
     </script>
