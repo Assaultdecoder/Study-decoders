@@ -1,195 +1,306 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SecureAccess</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }html, body {
-  height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0c0c12;
-  color: white;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureAccess</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    
+    <!-- CSS Styles -->
+    <style>
+        /* Basic Reset and Font */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none; /* Removes underline from links */
+        }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0d12; /* Exact dark background */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 20px 15px;
+        }
 
-.page-wrapper {
-  width: 100%;
-  max-width: 500px;
-  min-height: 100vh;
-  background-color: #0c0c12;
-  display: flex;
-  flex-direction: column;
-}
+        .container {
+            max-width: 450px;
+            width: 100%;
+        }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 20px;
-  background-color: #0c0c12;
-  border-bottom: 1px solid #1f1f2e;
-}
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
 
-.title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #00b2ff;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-.status {
-  color: #00ff00;
-  font-size: 14px;
-}
+        .logo i {
+            font-size: 26px;
+            color: #00aaff; /* Blue lock icon */
+        }
 
-.container {
-  padding: 20px;
-  flex-grow: 1;
-}
+        .logo h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #00aaff;
+        }
 
-.box {
-  background-color: #1c1e2c;
-  border-radius: 14px;
-  padding: 20px;
-  margin-bottom: 22px;
-  border: 2px solid #333;
-}
+        .system-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #55e07a;
+        }
 
-.box h2 {
-  font-size: 17px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
 
-.label {
-  margin-top: 6px;
-  font-size: 14px;
-  color: #00ffcc;
-}
+        .status-dot.online { background-color: #55e07a; }
+        .status-dot.testing { background-color: #55e07a; } /* In your image, it is also green */
 
-.instant-access {
-  background-color: #1a1a22;
-  border-color: #007bff;
-  text-align: center;
-  font-weight: bold;
-  font-size: 13px;
-  color: #00b2ff;
-  border-radius: 12px;
-  padding: 6px 12px;
-  margin-bottom: 8px;
-  width: fit-content;
-}
+        /* Main Content */
+        .main-content {
+            text-align: center;
+        }
 
-.access-heading {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+        .instant-access-btn {
+            background: #1b2a38;
+            color: #58b6f9;
+            border: 1px solid #2a3f53;
+            border-radius: 8px;
+            padding: 8px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .instant-access-btn i { font-size: 12px; }
 
-.help-box {
-  background-color: #2a1e2e;
-  border-color: #ff66cc;
-}
+        .main-content h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
 
-.help-label {
-  display: inline-block;
-  background-color: #ff66cc;
-  color: white;
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 12px;
-  margin-top: 8px;
-}
+        /* Cards */
+        .card {
+            background-color: #1a1c29;
+            border: 1.5px solid;
+            border-radius: 18px;
+            padding: 18px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+        .card-green { border-color: #33a953; }
+        .card-blue { border-color: #3b89d7; }
+        .card-pink { border-color: #d156a0; }
+        .card-yellow {
+            background-color: #2a261c;
+            border-color: #c9993f;
+        }
 
-.warning-box {
-  background-color: #2d2918;
-  border-color: #ffcc00;
-  padding: 20px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
+        .card-icon-wrapper {
+            font-size: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+        }
+        .card-icon-wrapper.rocket { background-color: #e54c4c; }
+        .card-icon-wrapper.admin { background-color: #5798de; }
+        .card-icon-wrapper.tutorial { background-color: #9253c8; }
+        .card-icon-wrapper.question i { color: #d4a24e; font-size: 28px; }
 
-.footer {
-  text-align: center;
-  font-size: 13px;
-  padding: 20px 10px;
-  color: #999;
-}
+        .card-details { flex-grow: 1; }
 
-.footer span {
-  display: inline-block;
-  margin: 5px;
-}
+        .card-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-details .success-check { color: #55e07a; }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+        .card-details .subtext {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-top: 2px;
+        }
 
-  </style>
+        .card-details .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .help-btn {
+            background-color: #e85da7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 6px 15px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            align-self: flex-end; /* Align to the bottom of the card */
+            margin-bottom: -5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        .footer-links span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <header>
-      <div class="title">
-        <span>🔐</span> <span>SecureAccess</span>
-      </div>
-      <div class="status">🟢 System Online</div>
-    </header><div class="container">
-  <div class="instant-access">⚡ Instant Access</div>
-  <div class="access-heading">Generate Your Access Key</div>
 
-  <a href="https://NeoTRMS.com" target="_blank">
-    <div class="box" style="border-color:#00cc66">
-      <h2>🚀 WEBSITE SERVER - 1 ✅</h2>
-      <div class="label">🟢 Online</div>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-lock"></i>
+                <h1>SecureAccess</h1>
+            </div>
+            <div class="system-status">
+                <span class="status-dot online"></span>
+                <span>System Online</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <button class="instant-access-btn">
+                <i class="fas fa-bolt"></i> Instant Access
+            </button>
+
+            <h2>Generate Your Access Key</h2>
+
+            <!-- Card 1: Website Server -->
+            <a href="#">
+                <div class="card card-green">
+                    <div class="card-icon-wrapper rocket">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>WEBSITE SERVER - 1 <i class="fas fa-check-circle success-check"></i></h3>
+                        <p class="status">
+                            <span class="status-dot online"></span> Online
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 2: Server 2 Beta -->
+            <a href="#">
+                <div class="card card-blue">
+                    <div class="card-icon-wrapper admin">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>SERVER - 2 (Beta)</h3>
+                        <p class="subtext">On Testing (Admin)</p>
+                        <p class="status">
+                            <span class="status-dot testing"></span> Testing
+                        </p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card 3: Tutorial Video -->
+            <a href="#">
+                <div class="card card-pink">
+                    <div class="card-icon-wrapper tutorial">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>TUTORIAL VIDEO</h3>
+                        <p class="subtext">Step-by-step guide</p>
+                    </div>
+                    <button class="help-btn">HELP</button>
+                </div>
+            </a>
+
+            <!-- Card 4: Need Help -->
+            <div class="card card-yellow help-card">
+                 <div class="card-icon-wrapper question">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div class="card-details">
+                    <h3>Need Help?</h3>
+                    <p class="subtext">Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Shashank and Neotrms.com. All rights reserved.</p>
+            <div class="footer-links">
+                <span><i class="fas fa-shield-halved"></i> Secure</span>
+                <span><i class="fas fa-bolt"></i> Fast</span>
+                <span><i class="fas fa-check-double"></i> Protected</span>
+            </div>
+        </footer>
     </div>
-  </a>
 
-  <div class="box" style="border-color:#00ccff">
-    <h2>👨‍💻 SERVER - 2 (Beta)</h2>
-    <div>On Testing (Admin)</div>
-    <div class="label">🟢 Testing</div>
-  </div>
-
-  <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
-    <div class="box help-box">
-      <h2>📹 TUTORIAL VIDEO</h2>
-      <div>Step-by-step guide</div>
-      <div class="help-label">HELP</div>
-    </div>
-  </a>
-
-  <div class="warning-box">
-    <h3 style="margin-bottom: 6px; font-size: 16px;">❓ Need Help?</h3>
-    <p style="font-size: 14px;">
-      <strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.
-    </p>
-  </div>
-</div>
-
-<div class="footer">
-  © 2025 Shashank and Neotrms.com. All rights reserved.<br>
-  <span>🔒 Secure</span> <span>⚡ Fast</span> <span>🛡️ Protected</span>
-</div>
-
-  </div>
 </body>
 </html>
