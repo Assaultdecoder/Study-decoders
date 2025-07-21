@@ -19,7 +19,7 @@
            Based on rify-neotrms.netlify.app
            ================================= */
         
-        /* Basic Reset and Gloal Styles */
+        /* Basic Reset and Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -116,20 +116,23 @@
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
             text-align: left;
             /* Using box-shadow to create the "glow" border effect */
             box-shadow: 0 0 0 1.5px #333; /* Default glow */
         }
         
-        .card.card-green { box-shadow: 0 0 0 1.5px #4caf50; }
-        .card.card-blue { box-shadow: 0 0 0 1.5px #2196f3; }
-        .card.card-pink { box-shadow: 0 0 0 1.5px #ec407a; }
-        .card.card-yellow {
+        .card-green { box-shadow: 0 0 0 1.5px #4caf50; }
+        .card-blue { box-shadow: 0 0 0 1.5px #2196f3; }
+        .card-pink { box-shadow: 0 0 0 1.5px #ec407a; }
+        .card-yellow {
             background-color: #2a261c;
             box-shadow: 0 0 0 1.5px #d4a24e;
+        }
+
+        .card-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .card-icon {
@@ -172,13 +175,7 @@
         }
 
         /* --- Special Fix for Tutorial Card Layout --- */
-        .tutorial-card {
-            display: block; /* Overriding flex to stack elements */
-        }
-        .tutorial-card .card-top-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .tutorial-card .card-content {
             margin-bottom: 15px; /* Space between content and HELP button */
         }
         .help-btn {
@@ -244,34 +241,38 @@
 
             <!-- Card 1: Website Server -->
             <div class="card card-green">
-                <div class="card-icon icon-bg-red">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <div class="card-details">
-                    <h3>WEBSITE SERVER - 1 <i class="fas fa-check-circle success-check"></i></h3>
-                    <p class="status">
-                        <span class="status-dot online"></span> Online
-                    </p>
+                <div class="card-content">
+                    <div class="card-icon icon-bg-red">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>WEBSITE SERVER - 1 <i class="fas fa-check-circle success-check"></i></h3>
+                        <p class="status">
+                            <span class="status-dot online"></span> Online
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- Card 2: Server 2 Beta -->
             <div class="card card-blue">
-                <div class="card-icon icon-bg-blue">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <div class="card-details">
-                    <h3>SERVER - 2 (Beta)</h3>
-                    <p class="subtext">On Testing (Admin)</p>
-                    <p class="status">
-                        <span class="status-dot testing"></span> Testing
-                    </p>
+                <div class="card-content">
+                    <div class="card-icon icon-bg-blue">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>SERVER - 2 (Beta)</h3>
+                        <p class="subtext">On Testing (Admin)</p>
+                        <p class="status">
+                            <span class="status-dot testing"></span> Testing
+                        </p>
+                    </div>
                 </div>
             </div>
 
             <!-- Card 3: Tutorial Video (Corrected Layout) -->
             <div class="card card-pink tutorial-card">
-                <div class="card-top-content">
+                <div class="card-content">
                     <div class="card-icon icon-bg-purple">
                         <i class="fas fa-video"></i>
                     </div>
@@ -285,12 +286,14 @@
 
             <!-- Card 4: Need Help -->
             <div class="card card-yellow">
-                 <div class="card-icon icon-only-yellow">
-                    <i class="fas fa-question"></i>
-                </div>
-                <div class="card-details">
-                    <h3>Need Help?</h3>
-                    <p class="subtext">Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
+                <div class="card-content">
+                    <div class="card-icon icon-only-yellow">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="card-details">
+                        <h3>Need Help?</h3>
+                        <p class="subtext">Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
+                    </div>
                 </div>
             </div>
         </main>
