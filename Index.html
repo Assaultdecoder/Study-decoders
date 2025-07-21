@@ -8,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for checkmark and footer icons -->
+    <!-- Font Awesome for small icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* --- Basic Setup --- */
         :root {
             --bg-color: #0d1117;
-            --main-container-bg: #161b22;
-            --card-bg: #0d1117; /* Cards will be slightly darker than the main container */
+            --container-bg: #161b22;
+            --card-bg: #21262d;
             --border-color: #30363d;
             --text-color: #e6edf3;
             --text-secondary: #7d8590;
@@ -26,9 +26,14 @@
             --pink-help: #db61a2;
             --yellow-help-bg: rgba(255, 193, 7, 0.08);
             --yellow-help-border: rgba(255, 193, 7, 0.3);
+            --yellow-icon: #ffc107;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -42,18 +47,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
+            padding-bottom: 20px;
+            /* New line below header */
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-icon {
             font-size: 1.8rem;
-            vertical-align: middle;
         }
 
         .logo-container h1 {
@@ -76,8 +83,12 @@
             box-shadow: 0 0 8px var(--green-online);
         }
 
-        /* --- Main Content --- */
-        .main-content {
+        /* --- Main Container for all content below header --- */
+        .main-container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -98,104 +109,97 @@
             transition: transform 0.3s ease;
         }
         
-        .instant-access-btn:hover { transform: scale(1.05); }
-
-        .instant-access-btn span { font-size: 1.2rem; }
+        .instant-access-btn:hover {
+            transform: scale(1.05);
+        }
 
         .main-heading {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
             text-align: center;
             color: #c9d1d9;
-            margin-top: 15px;
-            margin-bottom: 25px;
-        }
-
-        /* --- The Main Container Box for all cards --- */
-        .main-options-container {
-            width: 100%;
-            max-width: 500px;
-            background-color: var(--main-container-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            margin-bottom: 10px;
         }
 
         /* --- Cards Section --- */
+        .cards-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 20px;
             display: flex;
             align-items: center;
             gap: 20px;
             text-decoration: none;
             color: var(--text-color);
-            transition: border-color 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         
         a.card:hover {
             border-color: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px);
         }
         
         .card-left {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            min-width: 60px;
+            gap: 12px;
+            min-width: 50px;
         }
-        
+
         .card-icon {
             font-size: 2.8rem;
-            text-align: center;
         }
         
-        .card-status {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .card-status.online { color: var(--green-online); }
-        .card-status.testing { color: var(--cyan-testing); }
-
-        .card-right {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+        .card-content {
+            flex-grow: 1;
         }
         
-        .card-right h3 {
-            font-size: 1.15rem;
+        .card-content h3 {
+            font-size: 1.2rem;
             font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        .card-right p {
+        .card-content p {
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .card-status .status-dot { box-shadow: none; }
+        .card-status.online { color: var(--green-online); }
+        .card-status.testing { color: var(--cyan-testing); }
+        .card-status.online .status-dot { background-color: var(--green-online); }
+        .card-status.testing .status-dot { background-color: var(--cyan-testing); }
+        
         .checkmark {
             color: var(--green-online);
-            margin-left: 5px;
+            margin-left: 8px;
         }
 
         .help-button {
             background-color: var(--pink-help);
             color: white;
-            padding: 3px 12px;
+            padding: 4px 12px;
             border-radius: 6px;
             font-size: 0.8rem;
             font-weight: 600;
-            display: inline-block;
-            margin-top: 8px;
-            text-align: center;
-            width: fit-content;
+            align-self: flex-start; /* Aligns to left */
         }
         
         .help-card {
@@ -204,16 +208,14 @@
         }
         
         .help-card .card-icon {
-            font-size: 2rem;
-            color: #ffc107;
-            align-self: flex-start; /* Aligns question mark to top */
-            margin-top: 5px;
+            font-size: 2.5rem;
+            color: var(--yellow-icon);
         }
 
         /* --- Footer Section --- */
         .footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 40px;
             color: var(--text-secondary);
             font-size: 0.85rem;
         }
@@ -231,12 +233,15 @@
             gap: 8px;
         }
         
-        .feature i { color: var(--cyan-testing); }
+        .feature i {
+            color: var(--cyan-testing);
+        }
 
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header class="header">
         <div class="logo-container">
             <span class="logo-icon">🔐</span>
@@ -248,7 +253,9 @@
         </div>
     </header>
 
-    <main class="main-content">
+    <!-- Main Container -->
+    <div class="main-container">
+        
         <a href="#" class="instant-access-btn">
             <span>⚡</span>
             Instant Access
@@ -256,16 +263,19 @@
 
         <h2 class="main-heading">Generate Your Access Key</h2>
 
-        <!-- The main container box for all options -->
-        <div class="main-options-container">
+        <!-- All Cards Inside a Wrapper -->
+        <div class="cards-wrapper">
 
             <!-- Card 1: Website Server -->
             <a href="https://NeoTRMS.com/" target="_blank" class="card">
                 <div class="card-left">
                     <div class="card-icon">🚀</div>
-                    <div class="card-status online">Online</div>
+                    <div class="card-status online">
+                        <span class="status-dot"></span>
+                        <span>Online</span>
+                    </div>
                 </div>
-                <div class="card-right">
+                <div class="card-content">
                     <h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3>
                 </div>
             </a>
@@ -274,9 +284,12 @@
             <div class="card">
                 <div class="card-left">
                     <div class="card-icon">👨‍💻</div>
-                    <div class="card-status testing">Testing</div>
+                    <div class="card-status testing">
+                        <span class="status-dot"></span>
+                        <span>Testing</span>
+                    </div>
                 </div>
-                <div class="card-right">
+                <div class="card-content">
                     <h3>SERVER - 2 (Beta)</h3>
                     <p>On Testing (Admin)</p>
                 </div>
@@ -285,37 +298,49 @@
             <!-- Card 3: Tutorial Video -->
             <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank" class="card">
                 <div class="card-left">
-                    <div class="card-icon">📹</div>
+                     <div class="card-icon">📹</div>
                 </div>
-                <div class="card-right">
+                <div class="card-content">
                     <h3>TUTORIAL VIDEO</h3>
                     <p>Step-by-step guide</p>
-                    <div class="help-button">HELP</div>
+                    <div style="margin-top: 10px;">
+                        <span class="help-button">HELP</span>
+                    </div>
                 </div>
             </a>
             
             <!-- Card 4: Need Help? -->
             <div class="card help-card">
-                 <div class="card-left">
+                <div class="card-left">
                     <div class="card-icon">
                         <i class="fa-solid fa-question"></i>
                     </div>
                 </div>
-                <div class="card-right">
+                <div class="card-content">
                     <h3>Need Help?</h3>
                     <p>Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
                 </div>
             </div>
 
         </div>
-    </main>
+    </div>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>© 2025 Shashank and Neotrms.com. All rights reserved.</p>
         <div class="footer-features">
-            <div class="feature"><i class="fa-solid fa-shield-halved"></i><span>Secure</span></div>
-            <div class="feature"><i class="fa-solid fa-bolt"></i><span>Fast</span></div>
-            <div class="feature"><i class="fa-solid fa-shield-check"></i><span>Protected</span></div>
+            <div class="feature">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Secure</span>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Fast</span>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-shield-check"></i>
+                <span>Protected</span>
+            </div>
         </div>
     </footer>
 
