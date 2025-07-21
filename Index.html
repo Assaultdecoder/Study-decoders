@@ -1,163 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SecureAccess</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0f1b;
-      color: white;
-    }
+      padding: 0;
+      box-sizing: border-box;
+    }body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0c0c12;
+  color: white;
+}
 
-    .header {
-      background-color: #0d0f1b;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #222;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #0c0c12;
+  border-bottom: 1px solid #1f1f2e;
+}
 
-    .header h1 {
-      color: #00bfff;
-      margin: 0;
-      font-size: 24px;
-    }
+.title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00b2ff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
-    .status {
-      color: #00ff00;
-      font-size: 14px;
-      margin-top: 5px;
-    }
+.status {
+  color: #00ff00;
+  font-size: 14px;
+}
 
-    .container {
-      padding: 20px;
-    }
+.container {
+  padding: 16px;
+}
 
-    .section {
-      background-color: #1a1d2e;
-      border: 2px solid #444;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 15px;
-    }
+.box {
+  background-color: #1c1e2c;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 2px solid #333;
+}
 
-    .section-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 5px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+.box h2 {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-    .label {
-      color: #00ff99;
-      font-size: 14px;
-    }
+.label {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #00ffcc;
+}
 
-    .section.help {
-      border-color: #cc00cc;
-    }
+.instant-access {
+  background-color: #1a1a22;
+  border-color: #007bff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #00b2ff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 16px;
+}
 
-    .section.help .label {
-      background-color: #ff66cc;
-      color: white;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 12px;
-    }
+.help-box {
+  background-color: #2a1e2e;
+  border-color: #ff66cc;
+}
 
-    .section.warning {
-      background-color: #33301f;
-      border-color: #ffcc00;
-    }
+.help-label {
+  display: inline-block;
+  background-color: #ff66cc;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  margin-top: 6px;
+}
 
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #aaa;
-      padding: 20px;
-    }
+.warning-box {
+  background-color: #2d2918;
+  border-color: #ffcc00;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
 
-    .footer span {
-      display: block;
-      margin-top: 5px;
-    }
+.footer {
+  text-align: center;
+  font-size: 12px;
+  padding: 20px 10px;
+  color: #999;
+}
 
-    .icon {
-      font-size: 18px;
-    }
+.footer span {
+  display: inline-block;
+  margin: 5px;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-    .badge {
-      background-color: #007bff;
-      color: white;
-      padding: 3px 8px;
-      font-size: 12px;
-      border-radius: 12px;
-    }
-
-    .green-dot {
-      height: 10px;
-      width: 10px;
-      background-color: #00ff00;
-      border-radius: 50%;
-      display: inline-block;
-    }
   </style>
 </head>
 <body>
-
-  <div class="header">
-    <h1>🔐 SecureAccess</h1>
+  <header>
+    <div class="title">
+      <span>🔐</span> <span>SecureAccess</span>
+    </div>
     <div class="status">🟢 System Online</div>
+  </header>  <div class="container">
+    <div class="instant-access">⚡ Instant Access</div><a href="https://NeoTRMS.com" target="_blank">
+  <div class="box" style="border-color:#00cc66">
+    <h2>🚀 WEBSITE SERVER - 1 ✅</h2>
+    <div class="label">🟢 Online</div>
   </div>
+</a>
 
-  <div class="container">
+<div class="box" style="border-color:#00ccff">
+  <h2>👨‍💻 SERVER - 2 (Beta)</h2>
+  <div>On Testing (Admin)</div>
+  <div class="label">🟢 Testing</div>
+</div>
 
-    <div class="section">
-      <div class="badge">⚡ Instant Access</div>
-      <h2 style="margin-top: 10px;">Generate Your Access Key</h2>
-    </div>
-
-    <a href="https://NeoTRMS.com/" target="_blank">
-      <div class="section">
-        <div class="section-title">🚀 WEBSITE SERVER - 1 ✅</div>
-        <div class="label"><span class="green-dot"></span> Online</div>
-      </div>
-    </a>
-
-    <div class="section">
-      <div class="section-title">👨‍💻 SERVER - 2 (Beta)</div>
-      <div>On Testing (Admin)</div>
-      <div class="label"><span class="green-dot"></span> Testing</div>
-    </div>
-
-    <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
-      <div class="section help">
-        <div class="section-title">📹 TUTORIAL VIDEO</div>
-        <div>Step-by-step guide</div>
-        <div class="label">HELP</div>
-      </div>
-    </a>
-
-    <div class="section warning">
-      <h3>❓ Need Help?</h3>
-      <p><strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.</p>
-    </div>
-
+<a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
+  <div class="box help-box">
+    <h2>📹 TUTORIAL VIDEO</h2>
+    <div>Step-by-step guide</div>
+    <div class="help-label">HELP</div>
   </div>
+</a>
 
-  <div class="footer">
-    © 2025 Shashank and Neotrms.com. All rights reserved.
-    <span>🔒 Secure ⚡ Fast 🛡️ Protected</span>
+<div class="warning-box">
+  <h3 style="margin-bottom: 6px;">❓ Need Help?</h3>
+  <p style="font-size: 13px;">
+    <strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.
+  </p>
+</div>
+
+  </div>  <div class="footer">
+    © 2025 Shashank and Neotrms.com. All rights reserved.<br>
+    <span>🔒 Secure</span> <span>⚡ Fast</span> <span>🛡️ Protected</span>
   </div>
-
 </body>
 </html>
