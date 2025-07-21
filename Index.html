@@ -1,71 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Access Key</title>
-    <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f2f5; margin: 0; text-align: center; }
-        .container { padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        p { color: #666; }
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .button:hover { background-color: #0056b3; }
-    </style>
+  <meta charset="UTF-8">
+  <title>SecureAccess</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0f1b;
+      color: white;
+    }
+
+    .header {
+      background-color: #0d0f1b;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .header h1 {
+      color: #00bfff;
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .status {
+      color: #00ff00;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .section {
+      background-color: #1a1d2e;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .label {
+      color: #00ff99;
+      font-size: 14px;
+    }
+
+    .section.help {
+      border-color: #cc00cc;
+    }
+
+    .section.help .label {
+      background-color: #ff66cc;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .section.warning {
+      background-color: #33301f;
+      border-color: #ffcc00;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      padding: 20px;
+    }
+
+    .footer span {
+      display: block;
+      margin-top: 5px;
+    }
+
+    .icon {
+      font-size: 18px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .badge {
+      background-color: #007bff;
+      color: white;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 12px;
+    }
+
+    .green-dot {
+      height: 10px;
+      width: 10px;
+      background-color: #00ff00;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Welcome!</h1>
-        <p>Click the button below to generate your access key.</p>
-        <button id="generateKeyBtn" class="button">Generate Key</button>
+  <div class="header">
+    <h1>🔐 SecureAccess</h1>
+    <div class="status">🟢 System Online</div>
+  </div>
+
+  <div class="container">
+
+    <div class="section">
+      <div class="badge">⚡ Instant Access</div>
+      <h2 style="margin-top: 10px;">Generate Your Access Key</h2>
     </div>
 
-    <script>
-        // Aapke links
-        const shortlinkUrl = 'https://smallshorts.com/sLhX3BC3';
-        const mainWebsiteUrl = 'https://neotrms.com/7892-2/';
+    <a href="https://NeoTRMS.com/" target="_blank">
+      <div class="section">
+        <div class="section-title">🚀 WEBSITE SERVER - 1 ✅</div>
+        <div class="label"><span class="green-dot"></span> Online</div>
+      </div>
+    </a>
 
-        // Jab page load ho, to check karo ki key pehle se hai ya nahi
-        window.onload = function() {
-            const keyData = localStorage.getItem('accessKey');
+    <div class="section">
+      <div class="section-title">👨‍💻 SERVER - 2 (Beta)</div>
+      <div>On Testing (Admin)</div>
+      <div class="label"><span class="green-dot"></span> Testing</div>
+    </div>
 
-            if (keyData) {
-                const keyObject = JSON.parse(keyData);
-                const now = new Date().getTime();
+    <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
+      <div class="section help">
+        <div class="section-title">📹 TUTORIAL VIDEO</div>
+        <div>Step-by-step guide</div>
+        <div class="label">HELP</div>
+      </div>
+    </a>
 
-                // Check karo key expire to nahi hui
-                if (now < keyObject.expiry) {
-                    // Agar key valid hai, to seedha main website par bhej do
-                    console.log('Valid key found. Redirecting to main site.');
-                    window.location.href = mainWebsiteUrl;
-                    return; // Aage ka code nahi chalega
-                } else {
-                    // Agar key expire ho gayi hai, to use हटा do
-                    console.log('Key expired. Removing key.');
-                    localStorage.removeItem('accessKey');
-                }
-            }
-            console.log('No valid key found. Waiting for user to generate one.');
-        };
+    <div class="section warning">
+      <h3>❓ Need Help?</h3>
+      <p><strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.</p>
+    </div>
 
-        // Button par click karne par shortlink par bhejo
-        document.getElementById('generateKeyBtn').onclick = function() {
-            window.location.href = shortlinkUrl;
-        };
-    </script>
+  </div>
+
+  <div class="footer">
+    © 2025 Shashank and Neotrms.com. All rights reserved.
+    <span>🔒 Secure ⚡ Fast 🛡️ Protected</span>
+  </div>
 
 </body>
 </html>
