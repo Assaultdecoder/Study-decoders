@@ -9,23 +9,42 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }body {
+    }html, body {
+  height: 100%;
   font-family: 'Segoe UI', sans-serif;
   background-color: #0c0c12;
   color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  background-color: #0c0c12;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 16px;
+  padding: 14px 20px;
   background-color: #0c0c12;
   border-bottom: 1px solid #1f1f2e;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   color: #00b2ff;
   display: flex;
@@ -39,19 +58,20 @@ header {
 }
 
 .container {
-  padding: 16px;
+  padding: 20px;
+  flex-grow: 1;
 }
 
 .box {
   background-color: #1c1e2c;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
   border: 2px solid #333;
 }
 
 .box h2 {
-  font-size: 16px;
+  font-size: 16.5px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -59,8 +79,8 @@ header {
 }
 
 .label {
-  margin-top: 4px;
-  font-size: 13px;
+  margin-top: 6px;
+  font-size: 13.5px;
   color: #00ffcc;
 }
 
@@ -71,9 +91,9 @@ header {
   font-weight: bold;
   font-size: 14px;
   color: #00b2ff;
-  border-radius: 12px;
-  padding: 10px;
-  margin-bottom: 16px;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 20px;
 }
 
 .help-box {
@@ -85,23 +105,23 @@ header {
   display: inline-block;
   background-color: #ff66cc;
   color: white;
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 11px;
-  margin-top: 6px;
+  font-size: 11.5px;
+  margin-top: 8px;
 }
 
 .warning-box {
   background-color: #2d2918;
   border-color: #ffcc00;
-  padding: 16px;
-  border-radius: 12px;
-  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  margin-bottom: 20px;
 }
 
 .footer {
   text-align: center;
-  font-size: 12px;
+  font-size: 12.5px;
   padding: 20px 10px;
   color: #999;
 }
@@ -119,43 +139,49 @@ a {
   </style>
 </head>
 <body>
-  <header>
-    <div class="title">
-      <span>🔐</span> <span>SecureAccess</span>
+  <div class="page-wrapper">
+    <header>
+      <div class="title">
+        <span>🔐</span> <span>SecureAccess</span>
+      </div>
+      <div class="status">🟢 System Online</div>
+    </header><div class="container">
+  <div class="instant-access">⚡ Instant Access</div>
+
+  <a href="https://NeoTRMS.com" target="_blank">
+    <div class="box" style="border-color:#00cc66">
+      <h2>🚀 WEBSITE SERVER - 1 ✅</h2>
+      <div class="label">🟢 Online</div>
     </div>
-    <div class="status">🟢 System Online</div>
-  </header>  <div class="container">
-    <div class="instant-access">⚡ Instant Access</div><a href="https://NeoTRMS.com" target="_blank">
-  <div class="box" style="border-color:#00cc66">
-    <h2>🚀 WEBSITE SERVER - 1 ✅</h2>
-    <div class="label">🟢 Online</div>
-  </div>
-</a>
+  </a>
 
-<div class="box" style="border-color:#00ccff">
-  <h2>👨‍💻 SERVER - 2 (Beta)</h2>
-  <div>On Testing (Admin)</div>
-  <div class="label">🟢 Testing</div>
+  <div class="box" style="border-color:#00ccff">
+    <h2>👨‍💻 SERVER - 2 (Beta)</h2>
+    <div>On Testing (Admin)</div>
+    <div class="label">🟢 Testing</div>
+  </div>
+
+  <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
+    <div class="box help-box">
+      <h2>📹 TUTORIAL VIDEO</h2>
+      <div>Step-by-step guide</div>
+      <div class="help-label">HELP</div>
+    </div>
+  </a>
+
+  <div class="warning-box">
+    <h3 style="margin-bottom: 6px;">❓ Need Help?</h3>
+    <p style="font-size: 13.5px;">
+      <strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.
+    </p>
+  </div>
 </div>
 
-<a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank">
-  <div class="box help-box">
-    <h2>📹 TUTORIAL VIDEO</h2>
-    <div>Step-by-step guide</div>
-    <div class="help-label">HELP</div>
-  </div>
-</a>
-
-<div class="warning-box">
-  <h3 style="margin-bottom: 6px;">❓ Need Help?</h3>
-  <p style="font-size: 13px;">
-    <strong>Watch the tutorial video</strong> if you're unsure how to proceed. It covers the entire verification process step by step.
-  </p>
+<div class="footer">
+  © 2025 Shashank and Neotrms.com. All rights reserved.<br>
+  <span>🔒 Secure</span> <span>⚡ Fast</span> <span>🛡️ Protected</span>
 </div>
 
-  </div>  <div class="footer">
-    © 2025 Shashank and Neotrms.com. All rights reserved.<br>
-    <span>🔒 Secure</span> <span>⚡ Fast</span> <span>🛡️ Protected</span>
   </div>
 </body>
 </html>
