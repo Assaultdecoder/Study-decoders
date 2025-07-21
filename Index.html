@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome for other small icons (like footer) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
@@ -23,7 +23,8 @@
             --green-online: #238636;
             --cyan-testing: #1f6feb;
             --pink-help: #db61a2;
-            --yellow-logo: #ffc107;
+            --yellow-help: rgba(255, 193, 7, 0.08); /* Help card background */
+            --yellow-help-border: rgba(255, 193, 7, 0.3);
         }
 
         * {
@@ -54,8 +55,7 @@
         }
 
         .logo-icon {
-            font-size: 2.2rem;
-            color: var(--yellow-logo);
+            font-size: 2rem; /* Adjusted size for emoji */
         }
 
         .logo-container h1 {
@@ -136,22 +136,16 @@
             position: relative; /* For the help tag */
         }
         
-        /* Clickable cards have a hover effect */
         a.card:hover {
             border-color: var(--accent-color);
             transform: translateY(-5px);
         }
         
         .card-icon {
-            font-size: 2.5rem;
-            min-width: 40px;
+            font-size: 2.8rem; /* Adjusted size for emojis */
+            min-width: 50px;
             text-align: center;
         }
-        
-        /* Icon Colors */
-        .card-icon.rocket { color: #f78166; } /* Rocket Icon */
-        .card-icon.server-beta { color: #79c0ff; } /* Beta Server Icon */
-        .card-icon.video { color: var(--pink-help); } /* Video Icon */
         
         .card-content h3 {
             font-size: 1.2rem;
@@ -172,12 +166,9 @@
             font-size: 0.9rem;
         }
 
-        .card-status .status-dot {
-             box-shadow: none; /* remove shadow from small dots */
-        }
+        .card-status .status-dot { box-shadow: none; }
         .card-status .online { color: var(--green-online); }
         .card-status .testing { color: var(--cyan-testing); }
-
         .card-status .online .status-dot { background-color: var(--green-online); }
         .card-status .testing .status-dot { background-color: var(--cyan-testing); }
         
@@ -198,16 +189,14 @@
             right: 20px;
         }
         
-        /* Help Card */
         .help-card {
-            background-color: rgba(255, 193, 7, 0.08);
-            border: 1px solid rgba(255, 193, 7, 0.3);
+            background-color: var(--yellow-help);
+            border: 1px solid var(--yellow-help-border);
         }
         
         .help-card .card-icon {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--yellow-logo);
+            color: #ffc107;
         }
 
         /* --- Footer Section --- */
@@ -243,7 +232,7 @@
     <!-- Header -->
     <header class="header">
         <div class="logo-container">
-            <i class="fa-solid fa-lock logo-icon"></i>
+            <span class="logo-icon">🔒</span>
             <h1>SecureAccess</h1>
         </div>
         <div class="system-status">
@@ -264,11 +253,9 @@
         <!-- All Cards -->
         <div class="cards-container">
 
-            <!-- Card 1: Website Server (Clickable) -->
+            <!-- Card 1: Website Server (Clickable with Emoji) -->
             <a href="https://NeoTRMS.com/" target="_blank" class="card">
-                <div class="card-icon rocket">
-                    <i class="fa-solid fa-rocket"></i>
-                </div>
+                <div class="card-icon">🚀</div>
                 <div class="card-content">
                     <h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3>
                     <div class="card-status online">
@@ -278,11 +265,9 @@
                 </div>
             </a>
 
-            <!-- Card 2: Server 2 Beta -->
+            <!-- Card 2: Server 2 Beta (with Emoji) -->
             <div class="card">
-                <div class="card-icon server-beta">
-                    <i class="fa-solid fa-user-secret"></i>
-                </div>
+                <div class="card-icon">👨‍💻</div>
                 <div class="card-content">
                     <h3>SERVER - 2 (Beta)</h3>
                     <p>On Testing (Admin)</p>
@@ -293,11 +278,9 @@
                 </div>
             </div>
 
-            <!-- Card 3: Tutorial Video (Clickable) -->
+            <!-- Card 3: Tutorial Video (Clickable with Emoji) -->
             <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank" class="card">
-                <div class="card-icon video">
-                    <i class="fa-solid fa-video"></i>
-                </div>
+                <div class="card-icon">📹</div>
                 <div class="card-content">
                     <h3>TUTORIAL VIDEO</h3>
                     <p>Step-by-step guide</p>
