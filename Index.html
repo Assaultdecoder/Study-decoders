@@ -12,231 +12,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* --- Basic Setup --- */
         :root {
-            --bg-color: #0d1117;
-            --container-bg: #161b22;
-            --card-bg: #21262d;
-            --border-color: #30363d;
-            --text-color: #e6edf3;
-            --text-secondary: #7d8590;
-            --accent-color: #2f81f7;
-            --green-online: #238636;
-            --cyan-testing: #1f6feb;
-            --pink-help: #db61a2;
-            --yellow-help-bg: rgba(255, 193, 7, 0.08);
-            --yellow-help-border: rgba(255, 193, 7, 0.3);
-            --yellow-icon: #ffc107;
+            --bg-color: #0d1117; --container-bg: #161b22; --card-bg: #21262d; --border-color: #30363d; --text-color: #e6edf3;
+            --text-secondary: #7d8590; --accent-color: #2f81f7; --green-online: #238636; --cyan-testing: #1f6feb; --pink-help: #db61a2;
+            --yellow-help-bg: rgba(255, 193, 7, 0.08); --yellow-help-border: rgba(255, 193, 7, 0.3); --yellow-icon: #ffc107;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 20px 15px;
-        }
-
-        /* --- Header Section --- */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            /* New line below header */
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 1.8rem;
-        }
-
-        .logo-container h1 {
-            font-size: 1.7rem;
-            font-weight: 700;
-        }
-
-        .system-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--green-online);
-            box-shadow: 0 0 8px var(--green-online);
-        }
-
-        /* --- Main Container for all content below header --- */
-        .main-container {
-            background-color: var(--container-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .instant-access-btn {
-            background: linear-gradient(45deg, #388bfd, #166ce2);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3);
-            transition: transform 0.3s ease;
-        }
-        
-        .instant-access-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .main-heading {
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            color: #c9d1d9;
-            margin-bottom: 10px;
-        }
-
-        /* --- Cards Section --- */
-        .cards-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-        
-        a.card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-        
-        .card-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            min-width: 50px;
-        }
-
-        .card-icon {
-            font-size: 2.8rem;
-        }
-        
-        .card-content {
-            flex-grow: 1;
-        }
-        
-        .card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .card-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .card-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); padding: 20px 15px; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); margin-bottom: 20px; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { font-size: 1.8rem; }
+        .logo-container h1 { font-size: 1.7rem; font-weight: 700; }
+        .system-status { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .status-dot { width: 10px; height: 10px; border-radius: 50%; background-color: var(--green-online); box-shadow: 0 0 8px var(--green-online); }
+        .main-container { background-color: var(--container-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+        .instant-access-btn { background: linear-gradient(45deg, #388bfd, #166ce2); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3); transition: transform 0.3s ease; }
+        .instant-access-btn:hover { transform: scale(1.05); }
+        .main-heading { font-size: 2rem; font-weight: 600; text-align: center; color: #c9d1d9; margin-bottom: 10px; }
+        .cards-wrapper { width: 100%; display: flex; flex-direction: column; gap: 20px; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: flex; align-items: center; gap: 20px; text-decoration: none; color: var(--text-color); transition: all 0.3s ease; cursor: pointer; }
+        a.card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
+        .card-left { display: flex; flex-direction: column; align-items: center; gap: 12px; min-width: 50px; }
+        .card-icon { font-size: 2.8rem; }
+        .card-content { flex-grow: 1; }
+        .card-content h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+        .card-content p { font-size: 0.9rem; color: var(--text-secondary); }
+        .card-status { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
         .card-status .status-dot { box-shadow: none; }
         .card-status.online { color: var(--green-online); }
         .card-status.testing { color: var(--cyan-testing); }
         .card-status.online .status-dot { background-color: var(--green-online); }
         .card-status.testing .status-dot { background-color: var(--cyan-testing); }
-        
-        .checkmark {
-            color: var(--green-online);
-            margin-left: 8px;
-        }
-
-        .help-button {
-            background-color: var(--pink-help);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            align-self: flex-start; /* Aligns to left */
-        }
-        
-        .help-card {
-            background-color: var(--yellow-help-bg);
-            border: 1px solid var(--yellow-help-border);
-        }
-        
-        .help-card .card-icon {
-            font-size: 2.5rem;
-            color: var(--yellow-icon);
-        }
-
-        /* --- Footer Section --- */
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        .footer-features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .feature i {
-            color: var(--cyan-testing);
-        }
-
+        .checkmark { color: var(--green-online); margin-left: 8px; }
+        .help-button { background-color: var(--pink-help); color: white; padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; align-self: flex-start; }
+        .help-card { background-color: var(--yellow-help-bg); border: 1px solid var(--yellow-help-border); }
+        .help-card .card-icon { font-size: 2.5rem; color: var(--yellow-icon); }
+        .footer { text-align: center; margin-top: 40px; color: var(--text-secondary); font-size: 0.85rem; }
+        .footer-features { display: flex; justify-content: center; gap: 30px; margin-top: 20px; }
+        .feature { display: flex; align-items: center; gap: 8px; }
+        .feature i { color: var(--cyan-testing); }
     </style>
 </head>
 <body>
@@ -255,71 +69,43 @@
 
     <!-- Main Container -->
     <div class="main-container">
-        
-        <a href="#" class="instant-access-btn">
-            <span>⚡</span>
-            Instant Access
-        </a>
-
+        <a href="#" class="instant-access-btn"><span>⚡</span> Instant Access</a>
         <h2 class="main-heading">Generate Your Access Key</h2>
 
-        <!-- All Cards Inside a Wrapper -->
+        <!-- Cards Wrapper -->
         <div class="cards-wrapper">
 
-            <!-- Card 1: Website Server -->
-            <a href="https://NeoTRMS.com/" target="_blank" class="card">
+            <!-- Card 1: Website Server (Key System Enabled) -->
+            <a id="server-1-card" class="card">
                 <div class="card-left">
                     <div class="card-icon">🚀</div>
-                    <div class="card-status online">
-                        <span class="status-dot"></span>
-                        <span>Online</span>
-                    </div>
+                    <div class="card-status online"><span class="status-dot"></span><span>Online</span></div>
                 </div>
-                <div class="card-content">
-                    <h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3>
-                </div>
+                <div class="card-content"><h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3></div>
             </a>
 
             <!-- Card 2: Server 2 Beta -->
             <div class="card">
                 <div class="card-left">
                     <div class="card-icon">👨‍💻</div>
-                    <div class="card-status testing">
-                        <span class="status-dot"></span>
-                        <span>Testing</span>
-                    </div>
+                    <div class="card-status testing"><span class="status-dot"></span><span>Testing</span></div>
                 </div>
-                <div class="card-content">
-                    <h3>SERVER - 2 (Beta)</h3>
-                    <p>On Testing (Admin)</p>
-                </div>
+                <div class="card-content"><h3>SERVER - 2 (Beta)</h3><p>On Testing (Admin)</p></div>
             </div>
 
             <!-- Card 3: Tutorial Video -->
             <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank" class="card">
-                <div class="card-left">
-                     <div class="card-icon">📹</div>
-                </div>
+                <div class="card-left"><div class="card-icon">📹</div></div>
                 <div class="card-content">
-                    <h3>TUTORIAL VIDEO</h3>
-                    <p>Step-by-step guide</p>
-                    <div style="margin-top: 10px;">
-                        <span class="help-button">HELP</span>
-                    </div>
+                    <h3>TUTORIAL VIDEO</h3><p>Step-by-step guide</p>
+                    <div style="margin-top: 10px;"><span class="help-button">HELP</span></div>
                 </div>
             </a>
             
             <!-- Card 4: Need Help? -->
             <div class="card help-card">
-                <div class="card-left">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-question"></i>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3>Need Help?</h3>
-                    <p>Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
-                </div>
+                <div class="card-left"><div class="card-icon"><i class="fa-solid fa-question"></i></div></div>
+                <div class="card-content"><h3>Need Help?</h3><p>Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p></div>
             </div>
 
         </div>
@@ -327,22 +113,69 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 Anuj and Neotrms.com. All rights reserved.</p>
+        <p>© 2025 Shashank and Neotrms.com. All rights reserved.</p>
         <div class="footer-features">
-            <div class="feature">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>Secure</span>
-            </div>
-            <div class="feature">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Fast</span>
-            </div>
-            <div class="feature">
-                <i class="fa-solid fa-shield-check"></i>
-                <span>Protected</span>
-            </div>
+            <div class="feature"><i class="fa-solid fa-shield-halved"></i><span>Secure</span></div>
+            <div class="feature"><i class="fa-solid fa-bolt"></i><span>Fast</span></div>
+            <div class="feature"><i class="fa-solid fa-shield-check"></i><span>Protected</span></div>
         </div>
     </footer>
+
+    <!-- =============================================== -->
+    <!--          KEY GENERATION JAVASCRIPT              -->
+    <!-- =============================================== -->
+    <script>
+        // --- कॉन्फ़िगरेशन ---
+        const linkShortenerUrl = "https://vplink.in/IpGW"; // आपका लिंक यहाँ डाल दिया गया है!
+        const finalDestinationUrl = "https://NeoTRMS.com/";
+        // --- कॉन्फ़िगरेशन समाप्त ---
+
+        const server1Card = document.getElementById('server-1-card');
+
+        function hasValidKey() {
+            const keyDataString = localStorage.getItem('secureAccessKey');
+            if (!keyDataString) return false;
+            try {
+                const keyData = JSON.parse(keyDataString);
+                const keyTimestamp = keyData.timestamp;
+                const now = new Date().getTime();
+                const twentyFourHours = 86400000; // 24 hours in milliseconds
+                if (now - keyTimestamp < twentyFourHours) {
+                    return true;
+                } else {
+                    localStorage.removeItem('secureAccessKey');
+                    return false;
+                }
+            } catch (e) {
+                localStorage.removeItem('secureAccessKey');
+                return false;
+            }
+        }
+
+        server1Card.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (hasValidKey()) {
+                alert("Access Granted! Redirecting you to the server.");
+                window.open(finalDestinationUrl, '_blank');
+            } else {
+                alert("Access key required. Please generate a new key to proceed.");
+                window.location.href = linkShortenerUrl;
+            }
+        });
+
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('key_generated') && urlParams.get('key_generated') === 'true') {
+                const keyData = { timestamp: new Date().getTime() };
+                localStorage.setItem('secureAccessKey', JSON.stringify(keyData));
+                alert("Key Generated Successfully! You now have access for 24 hours. Redirecting...");
+                
+                // URL को साफ़ करें और फिर नए टैब में असली वेबसाइट खोलें
+                window.history.replaceState(null, '', window.location.pathname);
+                window.open(finalDestinationUrl, '_blank');
+            }
+        });
+    </script>
 
 </body>
 </html>
