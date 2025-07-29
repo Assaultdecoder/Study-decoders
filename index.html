@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* (सारा CSS कोड पहले जैसा ही रहेगा, कोई बदलाव नहीं) */
+        /* (सारा CSS कोड पहले जैसा ही है) */
         :root { --bg-color: #0d1117; --container-bg: #161b22; --card-bg: #21262d; --border-color: #30363d; --text-color: #e6edf3; --text-secondary: #7d8590; --accent-color: #2f81f7; --green-online: #238636; --cyan-testing: #1f6feb; --pink-help: #db61a2; --yellow-help-bg: rgba(255, 193, 7, 0.08); --yellow-help-border: rgba(255, 193, 7, 0.3); --yellow-icon: #ffc107; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); padding: 20px 15px; }
@@ -49,11 +49,13 @@
     </style>
 </head>
 <body>
-    <!-- (पूरा HTML स्ट्रक्चर वैसा ही रहेगा) -->
+    <!-- Header -->
     <header class="header">
         <div class="logo-container"><span class="logo-icon">🔐</span><h1>SecureAccess</h1></div>
         <div class="system-status"><span class="status-dot"></span><span>System Online</span></div>
     </header>
+
+    <!-- Main Container -->
     <div class="main-container">
         <a href="#" class="instant-access-btn"><span>⚡</span> Instant Access</a>
         <h2 class="main-heading">Generate Your Access Key</h2>
@@ -62,33 +64,60 @@
                 <div class="card-left"><div class="card-icon">🚀</div><div class="card-status online"><span class="status-dot"></span><span>Online</span></div></div>
                 <div class="card-content"><h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3></div>
             </a>
-            <!-- बाकी कार्ड्स -->
             <div class="card"><div class="card-left"><div class="card-icon">👨‍💻</div><div class="card-status testing"><span class="status-dot"></span><span>Testing</span></div></div><div class="card-content"><h3>SERVER - 2 (Beta)</h3><p>On Testing (Admin)</p></div></div>
             <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank" class="card"><div class="card-left"><div class="card-icon">📹</div></div><div class="card-content"><h3>TUTORIAL VIDEO</h3><p>Step-by-step guide</p><div style="margin-top: 10px;"><span class="help-button">HELP</span></div></div></a>
             <div class="card help-card"><div class="card-left"><div class="card-icon"><i class="fa-solid fa-question"></i></div></div><div class="card-content"><h3>Need Help?</h3><p>Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p></div></div>
         </div>
     </div>
+
+    <!-- Footer -->
     <footer class="footer"><p>© 2025 Shashank and Neotrms.com. All rights reserved.</p><div class="footer-features"><div class="feature"><i class="fa-solid fa-shield-halved"></i><span>Secure</span></div><div class="feature"><i class="fa-solid fa-bolt"></i><span>Fast</span></div><div class="feature"><i class="fa-solid fa-shield-check"></i><span>Protected</span></div></div></footer>
 
-    <!-- **अपडेट किया गया जावास्क्रिप्ट कोड** -->
+    <!-- **नया और फाइनल जावास्क्रिप्ट कोड** -->
     <script>
+        // URLs को यहाँ सेट करें
+        const finalDestinationUrl = 'https://neotrms.com/';
+        const linkShortenerUrl = "https://vplink.in/ik2aR"; // आपका लिंक यहाँ डाल दिया गया है
+
+        // फंक्शन: वेबसाइट पर भेजने के लिए
+        function proceedToWebsite() {
+            window.location.href = finalDestinationUrl;
+        }
+
+        // फंक्शन: लिंक शॉर्टनर पर भेजने के लिए
+        function goToLinkShortener() {
+            window.location.href = linkShortenerUrl;
+        }
+
+        // पेज लोड होते ही यह कोड चलेगा
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const isUnlocked = urlParams.get('unlocked');
+
+            // केस 1: उपयोगकर्ता अभी-अभी unlock.html से आया है
+            if (isUnlocked === 'true') {
+                // 24 घंटे का टाइमस्टैम्प सेव करें
+                localStorage.setItem('accessGrantedTime', Date.now());
+                // URL से ?unlocked=true को हटाकर सीधे वेबसाइट पर भेजें
+                window.history.replaceState({}, document.title, "index.html"); 
+                proceedToWebsite();
+                return; // आगे का कोड न चलाएं
+            }
+        });
+
+        // जब उपयोगकर्ता "SERVER 1" पर क्लिक करे
         document.getElementById('server-1-link').addEventListener('click', function(event) {
             event.preventDefault();
-
-            // ★★ यहां अपने लिंक शॉर्टनर का URL डालें ★★
-            const linkShortenerUrl = "https://vplink.in/ik2aR";
             
-            const finalDestinationUrl = 'https://neotrms.com/';
             const accessGrantedTime = localStorage.getItem('accessGrantedTime');
             const twentyFourHours = 24 * 60 * 60 * 1000;
 
-            // जांचें कि क्या एक्सेस दिया गया है और 24 घंटे से कम समय हुआ है
+            // जांचें कि क्या एक्सेस वैध है
             if (accessGrantedTime && (Date.now() - accessGrantedTime < twentyFourHours)) {
-                // अगर एक्सेस है, तो सीधे वेबसाइट पर भेजें
-                window.location.href = finalDestinationUrl;
+                proceedToWebsite();
             } else {
                 // अगर एक्सेस नहीं है, तो लिंक शॉर्टनर पर भेजें
-                window.location.href = linkShortenerUrl;
+                goToLinkShortener();
             }
         });
     </script>
