@@ -3,346 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureAccess</title>
-    <!-- Google Fonts (Poppins) -->
+    <title>Verify Access Key</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for small icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
-        /* --- Basic Setup --- */
-        :root {
-            --bg-color: #0d1117;
-            --container-bg: #161b22;
-            --card-bg: #21262d;
-            --border-color: #30363d;
-            --text-color: #e6edf3;
-            --text-secondary: #7d8590;
-            --accent-color: #2f81f7;
-            --green-online: #238636;
-            --cyan-testing: #1f6feb;
-            --pink-help: #db61a2;
-            --yellow-help-bg: rgba(255, 193, 7, 0.08);
-            --yellow-help-border: rgba(255, 193, 7, 0.3);
-            --yellow-icon: #ffc107;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            padding: 20px 15px;
-        }
-
-        /* --- Header Section --- */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 20px;
-            /* New line below header */
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 20px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            font-size: 1.8rem;
-        }
-
-        .logo-container h1 {
-            font-size: 1.7rem;
-            font-weight: 700;
-        }
-
-        .system-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--green-online);
-            box-shadow: 0 0 8px var(--green-online);
-        }
-
-        /* --- Main Container for all content below header --- */
-        .main-container {
-            background-color: var(--container-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .instant-access-btn {
-            background: linear-gradient(45deg, #388bfd, #166ce2);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(47, 129, 247, 0.3);
-            transition: transform 0.3s ease;
-        }
-        
-        .instant-access-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .main-heading {
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            color: #c9d1d9;
-            margin-bottom: 10px;
-        }
-
-        /* --- Cards Section --- */
-        .cards-wrapper {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            text-decoration: none;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-        
-        a.card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-        }
-        
-        .card-left {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-            min-width: 50px;
-        }
-
-        .card-icon {
-            font-size: 2.8rem;
-        }
-        
-        .card-content {
-            flex-grow: 1;
-        }
-        
-        .card-content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .card-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .card-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
-        }
-        
-        .card-status .status-dot { box-shadow: none; }
-        .card-status.online { color: var(--green-online); }
-        .card-status.testing { color: var(--cyan-testing); }
-        .card-status.online .status-dot { background-color: var(--green-online); }
-        .card-status.testing .status-dot { background-color: var(--cyan-testing); }
-        
-        .checkmark {
-            color: var(--green-online);
-            margin-left: 8px;
-        }
-
-        .help-button {
-            background-color: var(--pink-help);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            align-self: flex-start; /* Aligns to left */
-        }
-        
-        .help-card {
-            background-color: var(--yellow-help-bg);
-            border: 1px solid var(--yellow-help-border);
-        }
-        
-        .help-card .card-icon {
-            font-size: 2.5rem;
-            color: var(--yellow-icon);
-        }
-
-        /* --- Footer Section --- */
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-        
-        .footer-features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .feature i {
-            color: var(--cyan-testing);
-        }
-
+        :root { --bg-color: #0d1117; --card-bg: #161b22; --border-color: #30363d; --text-color: #e6edf3; --accent-color: #2f81f7; --red-error: #f85149; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .verify-container { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px; width: 100%; max-width: 400px; text-align: center; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); }
+        h1 { font-size: 1.8rem; margin-bottom: 15px; }
+        p { color: #7d8590; margin-bottom: 25px; }
+        .get-key-btn { display: inline-block; background-color: var(--accent-color); color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-bottom: 30px; transition: background-color 0.3s; }
+        .get-key-btn:hover { background-color: #1f6feb; }
+        .input-group { margin-bottom: 20px; }
+        input[type="text"] { width: 100%; background-color: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-color); padding: 12px; border-radius: 8px; font-size: 1rem; }
+        input[type="text"]:focus { outline: none; border-color: var(--accent-color); }
+        .verify-btn { width: 100%; background: linear-gradient(45deg, #238636, #2ea043); color: white; padding: 12px; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        .verify-btn:hover { transform: scale(1.02); }
+        #error-message { color: var(--red-error); margin-top: 15px; font-weight: 600; display: none; }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="logo-container">
-            <span class="logo-icon">🔐</span>
-            <h1>SecureAccess</h1>
-        </div>
-        <div class="system-status">
-            <span class="status-dot"></span>
-            <span>System Online</span>
-        </div>
-    </header>
-
-    <!-- Main Container -->
-    <div class="main-container">
+    <div class="verify-container">
+        <h1>Verify Your Access</h1>
+        <p>एक्सेस पाने के लिए, पहले नीचे दिए गए बटन से अपनी एक्सेस की (key) जेनरेट करें।</p>
         
-        <a href="#" class="instant-access-btn">
-            <span>⚡</span>
-            Instant Access
-        </a>
-
-        <h2 class="main-heading">Generate Your Access Key</h2>
-
-        <!-- All Cards Inside a Wrapper -->
-        <div class="cards-wrapper">
-
-            <!-- Card 1: Website Server -->
-            <a href="https://NeoTRMS.com/" target="_blank" class="card">
-                <div class="card-left">
-                    <div class="card-icon">🚀</div>
-                    <div class="card-status online">
-                        <span class="status-dot"></span>
-                        <span>Online</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3>WEBSITE SERVER - 1 <i class="fa-solid fa-circle-check checkmark"></i></h3>
-                </div>
-            </a>
-
-            <!-- Card 2: Server 2 Beta -->
-            <div class="card">
-                <div class="card-left">
-                    <div class="card-icon">👨‍💻</div>
-                    <div class="card-status testing">
-                        <span class="status-dot"></span>
-                        <span>Testing</span>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3>SERVER - 2 (Beta)</h3>
-                    <p>On Testing (Admin)</p>
-                </div>
-            </div>
-
-            <!-- Card 3: Tutorial Video -->
-            <a href="https://youtu.be/IDZRD42KWus?si=nFXOZSI4FiljCXro" target="_blank" class="card">
-                <div class="card-left">
-                     <div class="card-icon">📹</div>
-                </div>
-                <div class="card-content">
-                    <h3>TUTORIAL VIDEO</h3>
-                    <p>Step-by-step guide</p>
-                    <div style="margin-top: 10px;">
-                        <span class="help-button">HELP</span>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Card 4: Need Help? -->
-            <div class="card help-card">
-                <div class="card-left">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-question"></i>
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h3>Need Help?</h3>
-                    <p>Watch the tutorial video if you're unsure how to proceed. It covers the entire verification process step by step.</p>
-                </div>
-            </div>
-
+        <!-- ★★ यह लिंक आपको अपने लिंक शॉर्टनर से बदलना होगा ★★ -->
+        <a href="https://your-link-shortener-url.com" target="_blank" class="get-key-btn">Generate Access Key</a>
+        
+        <div class="input-group">
+            <input type="text" id="access-key-input" placeholder="यहां अपनी एक्सेस की डालें">
         </div>
+        
+        <button id="verify-key-btn" class="verify-btn">Verify & Proceed</button>
+        
+        <p id="error-message">गलत की! कृपया दोबारा प्रयास करें।</p>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2025 Shashank and Neotrms.com. All rights reserved.</p>
-        <div class="footer-features">
-            <div class="feature">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span>Secure</span>
-            </div>
-            <div class="feature">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Fast</span>
-            </div>
-            <div class="feature">
-                <i class="fa-solid fa-shield-check"></i>
-                <span>Protected</span>
-            </div>
-        </div>
-    </footer>
+    <script>
+        document.getElementById('verify-key-btn').addEventListener('click', function() {
+            // ★★ यह आपकी गुप्त की है। इसे वही रखें जो आपका लिंक शॉर्टनर दिखाएगा ★★
+            const correctKey = "UNLOCK24"; 
+            
+            const userInput = document.getElementById('access-key-input').value;
+            const errorMessage = document.getElementById('error-message');
 
+            // की (key) की जाँच करें
+            if (userInput.trim() === correctKey) {
+                // अगर की सही है, तो वर्तमान समय को localStorage में सेव करें
+                localStorage.setItem('accessGrantedTime', Date.now());
+                
+                // उपयोगकर्ता को मुख्य वेबसाइट पर भेजें
+                window.location.href = 'https://neotrms.com/';
+            } else {
+                // अगर की गलत है, तो एरर दिखाएं
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
